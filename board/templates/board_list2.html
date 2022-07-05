@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %} -->
+
+{% block contents %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <a href="{% url 'board_write' %}" class="btn btn-primary float-right">글쓰기</a>
+    </div>
+    <div class="col-lg-8 col-md-10 mx-auto">
+      {% for board in boards %}
+      <h1>{{ board.title }}</h1>
+      <p>{{ board.registered_dttm }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

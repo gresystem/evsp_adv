@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    {% if errors %}
+    <ul>
+      {% for error in errors %}
+      <li><div class="alert alert-primary" role="alert">{{ error }}</div></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="post" action="{% url 'board_write' %}" enctype="multipart/form-data" class="col-lg-8">
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="title">제목</label>
+        <input type="text" class="form-control" name="title" placeholder="제목을 읿력해 주세요">
+      </div>
+      <div class="form-group row">
+        <label for="content">내용</label>
+        <textarea name="content" class="form-control" id="" rows="7"></textarea>
+      </div>
+      <div class="form-group row">
+        <label for="content">사진첨부</label>
+        <input type="file" class="form-control" name="image">
+      </div>
+      <div class="form-group row float-right">
+        <button type="submit" class="btn btn-primary">저장하기</button>
+      </div>
+    </form>
+  </div>
+</div>
