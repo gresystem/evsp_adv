@@ -17,6 +17,7 @@ from evcharger.views import (
     EvchargerCreateView, EvchargerDeleteView
     )
 from board.views import boards_list2, boards_detail, board_write
+from msglog.views import MsglogList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,6 +42,7 @@ urlpatterns = [
     path('evcharger/<int:pk>/', EvchargerDetail.as_view()),
     path('evcharger/register/', EvchargerCreateView.as_view()),
     path('cpupdate/<int:pk>/', EvchargerUpdateView.as_view(), name='cpupdate'),
+    path('msgloginfo/', MsglogList.as_view()),
     path('logout/', logout),
 ]
 urlpatterns += [
