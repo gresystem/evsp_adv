@@ -49,7 +49,7 @@ def msglogCreate(request):
     return Response({"message":"ERROR DETECT"})
 
   serializer = MsglogSerializer(data=data)
-  print(serializer)
+  # print(serializer)
   if serializer.is_valid():
     serializer.save()
     print("serializer is valid")
@@ -79,7 +79,7 @@ class MsglogList(ListView):
   model = Msglog
   template_name='msglog.html'
   context_object_name = 'msglogList'
-  paginate_by = 2
+  paginate_by = 10
   queryset = Msglog.objects.all()
 
   def get_context_data(self, **kwargs):

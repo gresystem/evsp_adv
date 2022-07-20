@@ -37,19 +37,19 @@ class CharginginfoDetail(DetailView):
 class CharginginfoCreateView(CreateView):
   model = Charginginfo
   template_name = 'charginginfo_register.html'
-  fields = ['cpname', 'chargedname', 'energy', 'amount']
+  fields = ['cpname', 'cpnumber', 'userid', 'energy', 'amount']
   success_url = '/charginginfo'
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     user_id = self.request.session['user']
     context['loginuser'] = user_id
-    print(context)
+    print(context['form'])
     
     return context
 
 class CharginginfoUpdateView(UpdateView):
   model = Charginginfo
   template_name='charginginfo_update.html'
-  fields = ['cpname', 'chargedname', 'energy', 'amount']
+  fields = ['cpname', 'cpnumber', 'userid', 'energy', 'amount']
   success_url = '/charginginfo'

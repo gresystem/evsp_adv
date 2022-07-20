@@ -10,7 +10,7 @@ from charginginfo.views import (
     )   
 from cardinfo.views import (
     CardinfoList, CardinfoCreateView, CardinfoDeleteView, CardinfoUpdateView,
-    CardinfoDetail
+    CardinfoDetail, CardinfoCreateRemoteView
     )
 from evcharger.views import (
     EvchargerList, EvchargerDetail, EvchargerUpdateView, 
@@ -35,6 +35,7 @@ urlpatterns = [
     path('cardinfo/', CardinfoList.as_view()),
     path('cardinfo/<int:pk>/', CardinfoDetail.as_view()),
     path('cardinfo/register/', CardinfoCreateView.as_view()),
+    path('cardinfo/registerremote/', CardinfoCreateRemoteView.as_view()),
     path('cardinfo/<int:pk>/delete/', CardinfoDeleteView.as_view()),
     path('cardupdate/<int:pk>/', CardinfoUpdateView.as_view(), name='cardupdate'),
     path('evcharger/', EvchargerList.as_view()),

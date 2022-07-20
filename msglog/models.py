@@ -6,11 +6,10 @@ from evcharger.models import Evcharger
 
 class Msglog(models.Model):
   cpname = models.CharField(max_length=128, verbose_name='충전기번호')
-  username = models.CharField(max_length=128, verbose_name='사용자명')
   msg_direction = models.IntegerField(verbose_name='메세지오리진')
   msg_name = models.CharField(max_length=128, verbose_name='메세지이름')
   msg_content = models.TextField(verbose_name='메세지본문')
-  connection_id = models.IntegerField(verbose_name='커넥션아이디')
+  connection_id = models.CharField(max_length=128, verbose_name='커넥션아이디')
   register_dttm = models.DateTimeField(auto_now_add=True, verbose_name='등록일시')
 
   # def __str__(self):

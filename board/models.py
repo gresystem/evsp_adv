@@ -6,7 +6,7 @@ from tag.models import Tag
 
 class Board(models.Model):
   title = models.CharField(max_length=128, verbose_name='제목')
-  user = models.ForeignKey('evuser.Evuser', on_delete=models.CASCADE, verbose_name='작성자')
+  userid = models.CharField(max_length=64, verbose_name='회원아이디')
   content = models.TextField(verbose_name='내용')
   image = models.ImageField(blank=True, null=True)
   # tags = models.ManyToManyField('tag.Tag', verbose_name='테그')

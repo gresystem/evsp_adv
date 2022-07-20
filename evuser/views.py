@@ -11,7 +11,7 @@ def index(request):
   if request.method == 'POST':
     form = LoginForm(request.POST)
     if form.is_valid():
-      request.session['user'] = form.data.get('username')
+      request.session['user'] = form.data.get('userid')
       return redirect('/evuser')
   else:
     form = LoginForm()
@@ -24,7 +24,7 @@ def index(request):
 #   success_url = '/'
 #   def form_valid(self, form):
 #     evuser = Evuser(
-#       username=form.data.get('username'),
+#       userid=form.data.get('userid'),
 #       password=make_password(form.data.get('password')),
 #       level='user'
 #     )
@@ -35,7 +35,7 @@ def index(request):
 class EvuserCreateView(CreateView):
   model = Evuser
   template_name = 'evuser_register.html'
-  fields = ['username', 'password']
+  fields = ['userid', 'password']
   success_url = '/evuser'
 
 class EvuserDeleteView(DeleteView):
@@ -46,7 +46,7 @@ class EvuserDeleteView(DeleteView):
 class EvuserUpdateView(UpdateView):
   model = Evuser
   template_name='evuser_update.html'
-  fields = [ 'username', 'name', 'phone']
+  fields = [ 'userid', 'name', 'phone']
   success_url = '/evuser'
 
 class EvuserList(ListView):
