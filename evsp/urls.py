@@ -53,5 +53,6 @@ urlpatterns += [
 
     path('api/', include('api.urls')),
     path('msglog/', include('msglog.urls')),
+    path('msgcomm/', include('msgcomm.urls')),
 ]
 
