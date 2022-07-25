@@ -46,7 +46,7 @@
   <div class="col-md-2">
     <form>
       <div class="input-group input-group-sm">
-        <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input type="text" class="form-control" placeholder="" aria-label="Recipient's userid" aria-describedby="button-addon2">
         <button class="btn btn-primary" type="button" id="button-addon2">
           <i class="bi bi-search"></i>
         </button>
@@ -82,6 +82,7 @@
           <th scope="col">충전기번호</th>
           <th scope="col">충전기이름</th>
           <th scope="col">충전상태</th>
+          <th scope="col">파트너아이디</th>
           <th scope="col">주소</th>
           <th scope="col">펌웨어버전</th>
           <th scope="col">등록일시</th>
@@ -96,6 +97,7 @@
             href="/evcharger/{{ evcharger.id }}">{{ evcharger.cpnumber }}</a></th>
           <th>{{ evcharger.cpname }}</th>
           <th>{{ evcharger.cpstatus }}</th>
+          <th>{{ evcharger.partner_id }}</th>
           <th>{{ evcharger.address }}</th>
           <th>{{ evcharger.cpversion }}</th>
           <th>{{ evcharger.register_dttm }}</th>

@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import check_password
 from .models import Evuser
 
 class RegisterForm(forms.Form):
-  username = forms.CharField(
+  userid = forms.CharField(
     error_messages={
       'required': '사용자 아이디를 입력하세요.'
     },
@@ -24,7 +24,7 @@ class RegisterForm(forms.Form):
 
   def clean(self):
     cleaned_data = super().clean()
-    username = cleaned_data.get('username')
+    userid = cleaned_data.get('userid')
     password = cleaned_data.get('password')
     re_password = cleaned_data.get('re_password')
 
@@ -34,7 +34,7 @@ class RegisterForm(forms.Form):
         self.add_error('re_password', '비밀번호가 서로 다릅니다.')
 
 class LoginForm(forms.Form):
-  username = forms.CharField(
+  userid = forms.CharField(
     error_messages={
       'required': '사용자 아이디를 입력하세요.'
     },
@@ -49,14 +49,14 @@ class LoginForm(forms.Form):
 
   def clean(self):
     cleaned_data = super().clean()
-    username = cleaned_data.get('username')
+    userid = cleaned_data.get('userid')
     password = cleaned_data.get('password')
 
-    if username and password:
+    if userid and password:
       try:
-        evuser = Evuser.objects.get(username=username)
+        evuser = Evuser.objects.get(userid=userid)
       except Evuser.DoesNotExist:
-        self.add_error('username', '아이디가 없습니다.')
+        self.add_error('userid', '아이디가 없습니다.')
         return
 
       if password != evuser.password:

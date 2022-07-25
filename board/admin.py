@@ -4,6 +4,6 @@ from .models import Board
 # Register your models here.
 
 class BoardAdmin(admin.ModelAdmin):
-  list_display = ('title', 'user',)
+  list_display = ('title', 'userid', 'content',)
 
 admin.site.register(Board, BoardAdmin)

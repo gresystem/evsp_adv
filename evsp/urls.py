@@ -10,13 +10,14 @@ from charginginfo.views import (
     )   
 from cardinfo.views import (
     CardinfoList, CardinfoCreateView, CardinfoDeleteView, CardinfoUpdateView,
-    CardinfoDetail
+    CardinfoDetail, CardinfoCreateRemoteView
     )
 from evcharger.views import (
     EvchargerList, EvchargerDetail, EvchargerUpdateView, 
     EvchargerCreateView, EvchargerDeleteView
     )
 from board.views import boards_list2, boards_detail, board_write
+from msglog.views import MsglogList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +35,7 @@ urlpatterns = [
     path('cardinfo/', CardinfoList.as_view()),
     path('cardinfo/<int:pk>/', CardinfoDetail.as_view()),
     path('cardinfo/register/', CardinfoCreateView.as_view()),
+    path('cardinfo/registerremote/', CardinfoCreateRemoteView.as_view()),
     path('cardinfo/<int:pk>/delete/', CardinfoDeleteView.as_view()),
     path('cardupdate/<int:pk>/', CardinfoUpdateView.as_view(), name='cardupdate'),
     path('evcharger/', EvchargerList.as_view()),
@@ -41,6 +43,7 @@ urlpatterns = [
     path('evcharger/<int:pk>/', EvchargerDetail.as_view()),
     path('evcharger/register/', EvchargerCreateView.as_view()),
     path('cpupdate/<int:pk>/', EvchargerUpdateView.as_view(), name='cpupdate'),
+    path('msgloginfo/', MsglogList.as_view()),
     path('logout/', logout),
 ]
 urlpatterns += [
@@ -50,5 +53,6 @@ urlpatterns += [
 
     path('api/', include('api.urls')),
     path('msglog/', include('msglog.urls')),
+    path('msgcomm/', include('msgcomm.urls')),
 ]
 

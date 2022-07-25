@@ -32,13 +32,13 @@ class EvchargerDetail(DetailView):
 class EvchargerUpdateView(UpdateView):
   model = Evcharger
   template_name='evcharger_update.html'
-  fields = [ 'cpnumber', 'cpname', 'cpstatus', 'address']
+  fields = ['cpnumber', 'cpname', 'cpstatus', 'address', 'partner_id']
   success_url = '/evcharger'
 
 class EvchargerCreateView(CreateView):
   model = Evcharger
   template_name = 'evcharger_register.html'
-  fields = ['cpnumber', 'cpname', 'address']
+  fields = ['cpnumber', 'cpname', 'cpstatus', 'address', 'partner_id']
   success_url = '/evcharger'
 
 class EvchargerDeleteView(DeleteView):
