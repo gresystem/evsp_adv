@@ -61,3 +61,40 @@ $ pip install djangorestframework
 $ pip install mysqlclient
 $ pip install pillow
 ```
+7. 마지막으로 아래 명령으로 시스템이 가동되는 것 확인
+```
+(venv)
+$ python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 05, 2022 - 00:24:56
+Django version 4.1, using settings 'evsp.settings'
+Starting ASGI/Channels version 3.0.5 development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+```
+9. 기타 evsp.settings.py에 mySQL과 연결을 위한 계정 변경한다. (sqlite3 스크립트를 mysql 스크립트로 변경)
+```
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'evtest',
+        'USER': 'root',
+        'PASSWORD': 'xxxxxxxxxxxx',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+```
+
+
+
+
